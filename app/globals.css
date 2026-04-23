@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --abyss: #0A0C10;
+  --steel: #0F1520;
+  --ivory: #E6E3DB;
+  --brass: #C9A86A;
+  --cyan: #7FE7D4;
+  --precision: #FF4B2B;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background: var(--abyss);
+  color: var(--ivory);
+  overflow-x: hidden;
+}
+
+@media (pointer: coarse) {
+  html, body { cursor: auto; }
+}
+
+.site-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: #0a0c10;
+}
+
+::selection {
+  background: var(--brass);
+  color: var(--abyss);
+}
+
+/* Vignette */
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  background: none;
+}
+
+/* Chrome text gradient */
+.chrome-text {
+  color: var(--ivory);
+}
+
+.brass-text {
+  color: var(--brass);
+}
+
+/* Glass panel */
+.glass {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.glass-strong {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Hairline */
+.hairline {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(230,227,219,0.25), transparent);
+}
+
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
+  line-height: 1.2;
+}
+
+/* Improve Arabic readability for tiny subtitle labels */
+[dir="rtl"] .text-\[10px\] {
+  font-size: 0.78rem;
+}
+
+/* Magnetic button */
+.magnetic {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(230,227,219,0.18);
+  background: linear-gradient(180deg, rgba(230,227,219,0.06), rgba(230,227,219,0.02));
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.magnetic:hover {
+  border-color: rgba(201,168,106,0.6);
+  transform: translateY(-1px);
+}
+
+.magnetic-primary {
+  background: linear-gradient(180deg, #F0E8CF, #C9A86A);
+  color: #0A0C10;
+  border-color: rgba(201,168,106,0.8);
+}
+.station {
+  position: relative;
+  padding: 5rem 0;
+}
+
+/* Focus accessibility */
+:focus-visible {
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
