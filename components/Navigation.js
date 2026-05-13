@@ -12,7 +12,7 @@ export default function Navigation() {
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 px-8 md:px-10 py-4 bg-abyss/90 backdrop-blur-sm border-b border-ivory/10">
+      <header className="fixed top-0 left-0 right-0 z-50 site-gutter py-4 bg-abyss/90 backdrop-blur-sm border-b border-ivory/10">
         <div className="flex items-center justify-between gap-5">
         <a
           href="#top"
@@ -26,7 +26,7 @@ export default function Navigation() {
 
         <nav className="hidden lg:flex items-center gap-6 text-[11px] tracking-[0.18em] uppercase text-ivory/70 font-mono">
           {links.map((l) => (
-            <a key={l.id} href={`#${l.id}`} className="hover:text-ivory transition-colors">
+            <a key={l.id} href={l.href ?? `#${l.id}`} className="hover:text-ivory transition-colors">
               {l.label}
             </a>
           ))}
@@ -56,13 +56,13 @@ export default function Navigation() {
       </header>
 
       {open && (
-        <div className="fixed top-[72px] left-0 right-0 z-40 px-8 md:px-10 pb-4">
+        <div className="fixed top-[72px] left-0 right-0 z-40 site-gutter pb-4">
           <div className="glass p-4 md:p-5">
             <ul className="grid sm:grid-cols-2 gap-2">
               {links.map((l) => (
                 <li key={l.id}>
                   <a
-                    href={`#${l.id}`}
+                    href={l.href ?? `#${l.id}`}
                     onClick={() => setOpen(false)}
                     className={`block px-3 py-2 text-sm tracking-[0.12em] uppercase text-ivory/80 hover:text-brass ${
                       locale === "ar" ? "font-arabic" : "font-mono"

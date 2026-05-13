@@ -54,10 +54,10 @@ export default function Services() {
             </ul>
 
             <a
-              href="#contact"
+              href={item.href ?? "#contact"}
               className={`inline-flex mt-7 text-[10px] tracking-[0.22em] uppercase text-brass hover:text-ivory transition-colors ${fontMeta}`}
             >
-              {s.cta}
+              {item.cta ?? s.cta}
             </a>
           </article>
         ))}

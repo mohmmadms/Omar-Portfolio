@@ -10,7 +10,7 @@ export default function Process() {
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
 
   return (
-    <section id="process" className="station px-8 md:px-12 lg:px-20">
+    <section id="process" className="station site-gutter">
       <SectionHeader num={p.num} kicker={p.kicker} title={p.title} caption={p.caption} />
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-16">

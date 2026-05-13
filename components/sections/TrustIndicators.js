@@ -8,7 +8,7 @@ export default function TrustIndicators() {
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
 
   return (
-    <section className="px-8 md:px-12 lg:px-20 pb-8 md:pb-14">
+    <section className="site-gutter pb-8 md:pb-14">
       <div className="border border-ivory/10 p-5 md:p-7">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <p className={`text-[10px] tracking-[0.24em] uppercase text-brass ${fontMeta}`}>

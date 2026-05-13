@@ -10,7 +10,7 @@ export default function Clients() {
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
 
   return (
-    <section id="clients" className="station px-8 md:px-12 lg:px-20">
+    <section id="clients" className="station site-gutter">
       <SectionHeader
         num={c.num}
         kicker={c.kicker}

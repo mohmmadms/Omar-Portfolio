@@ -10,7 +10,7 @@ export default function FinalCta() {
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
 
   return (
-    <section className="px-8 md:px-12 lg:px-20 pb-8 md:pb-14">
+    <section className="site-gutter pb-8 md:pb-14">
       <div className="border border-ivory/10 p-7 md:p-10">
         <p className={`text-[10px] tracking-[0.24em] uppercase text-brass ${fontMeta}`}>{c.kicker}</p>
         <h2 className={`mt-4 text-3xl md:text-5xl tracking-tight ${

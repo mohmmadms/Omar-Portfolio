@@ -11,7 +11,7 @@ export default function Founder() {
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
 
   return (
-    <section id="founder" className="station px-8 md:px-12 lg:px-20">
+    <section id="founder" className="station site-gutter">
       <SectionHeader
         num={f.num}
         kicker={f.kicker}
@@ -72,8 +72,8 @@ export default function Founder() {
             ))}
           </ul>
 
-          <div className="mt-12 grid grid-cols-3 gap-3" dir="ltr">
-            {["GSO", "GULFMET", "ILAC", "BIPM", "OIML", "UNIDO"].map((x) => (
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-3 gap-3" dir="ltr">
+            {(f.frameworks ?? ["GSO", "GULFMET", "ILAC", "BIPM", "OIML", "UNIDO"]).map((x) => (
               <div
                 key={x}
                 className="glass px-4 py-5 font-mono text-[11px] tracking-[0.22em] uppercase text-ivory/70 text-center"

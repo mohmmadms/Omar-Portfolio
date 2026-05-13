@@ -5,11 +5,13 @@ import { useLocale } from "../LocaleProvider";
 export default function Footer() {
   const { t, locale } = useLocale();
   const f = t.footer;
+  const email = f.email ?? "okanakrieh02@hotmail.com";
+  const phone = f.phone ?? "+962 785 166 620";
   const fontMeta = locale === "ar" ? "font-arabic" : "font-mono";
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
 
   return (
-    <footer className="relative pt-24 pb-10 px-8 md:px-12 lg:px-20 border-t border-ivory/10">
+    <footer className="relative pt-24 pb-10 site-gutter border-t border-ivory/10">
       {/* <div className="overflow-hidden mb-16" dir="ltr">
         <h2 className="font-display tracking-tightest leading-[0.8] text-[22vw] lg:text-[18vw] chrome-text select-none">
           KANAKRIEH
@@ -44,17 +46,17 @@ export default function Footer() {
               {f.contactKicker}
             </div>
             <a
-              href="mailto:okanakrieh02@hotmail.com"
+              href={`mailto:${email}`}
               className="block font-serif text-xl hover:text-brass transition-colors"
             >
-              okanakrieh02@hotmail.com
+              {email}
             </a>
             <a
-              href="tel:+962785166620"
+              href={`tel:${phone.replace(/\s+/g, "")}`}
               className="block font-mono text-sm text-ivory/70 hover:text-brass transition-colors mt-2"
               dir="ltr"
             >
-              +962 785 166 620
+              {phone}
             </a>
             <p className={`mt-6 text-sm text-ivory/60 leading-relaxed ${fontBody}`}>
               {f.address}
@@ -69,7 +71,7 @@ export default function Footer() {
               {t.nav.links.map((l) => (
                 <li key={l.id}>
                   <a
-                    href={`#${l.id}`}
+                    href={l.href ?? `#${l.id}`}
                     className={`text-base text-ivory/75 hover:text-brass transition-colors ${fontBody}`}
                   >
                     {l.label}

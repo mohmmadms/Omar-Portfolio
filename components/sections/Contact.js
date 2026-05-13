@@ -22,7 +22,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="station px-8 md:px-12 lg:px-20">
+    <section id="contact" className="station site-gutter">
       <SectionHeader
         num={c.num}
         kicker={c.kicker}

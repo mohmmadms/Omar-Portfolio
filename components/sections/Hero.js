@@ -8,6 +8,13 @@ export default function Hero() {
 
   const fontBody = locale === "ar" ? "font-arabic" : "font-display";
   const fontMeta = locale === "ar" ? "font-arabic" : "font-mono";
+  const actions = t.hero.actions ?? [
+    { label: t.hero.ctaPrimary, href: "#contact", primary: true },
+    { label: t.hero.ctaPhone, href: "tel:+962785166620" },
+    { label: t.hero.ctaEmail, href: "#services" },
+  ];
+  const highlightsTitle = t.hero.highlightsTitle ?? t.hero.panelKicker;
+  const highlights = t.hero.highlights ?? t.hero.panelBullets ?? [];
 
   return (
     <section className="relative px-8 md:px-12 lg:px-20 pt-28 pb-14">
@@ -31,22 +38,17 @@ export default function Hero() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-3">
-            <Magnetic href="#contact" primary>
-              {t.hero.ctaPrimary}
+          {actions.map((action) => (
+            <Magnetic key={action.label} href={action.href} primary={action.primary}>
+              {action.label}
             </Magnetic>
-            <Magnetic href="tel:+962785166620">
-              <span dir="ltr">{t.hero.ctaPhone}</span>
-            </Magnetic>
-            <Magnetic href="#services">
-              {t.hero.ctaEmail}
-            </Magnetic>
+          ))}
         </div>
 
         <div className="mt-8 border border-ivory/10 p-5">
-          <p className={`text-[10px] tracking-[0.22em] uppercase text-brass ${fontMeta}`}>{t.hero.panelKicker}</p>
-          <p className={`mt-3 text-sm md:text-base text-ivory/80 ${fontBody}`}>{t.hero.panelBody}</p>
-          <ul className={`mt-4 space-y-2 text-sm text-ivory/75 ${fontBody}`}>
-            {t.hero.panelBullets.map((item, i) => (
+          <p className={`text-[10px] tracking-[0.22em] uppercase text-brass ${fontMeta}`}>{highlightsTitle}</p>
+          <ul className={`mt-4 grid md:grid-cols-2 gap-2 text-sm text-ivory/80 ${fontBody}`}>
+            {highlights.map((item, i) => (
               <li key={i}>- {item}</li>
             ))}
           </ul>
